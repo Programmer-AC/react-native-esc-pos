@@ -328,7 +328,8 @@ public class PrinterService {
                 // For each vertical line/slice must collect 3 bytes (24 bytes)
                 baos.write(EscPosHelper.collectImageSlice(y, x, image));
             }
-            baos.write(CTL_LF);
+						// https://github.com/leesiongchan/react-native-esc-pos/issues/56
+            // baos.write(CTL_LF);
         }
 
         return baos;
