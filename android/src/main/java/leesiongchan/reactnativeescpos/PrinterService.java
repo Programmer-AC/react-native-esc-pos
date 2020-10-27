@@ -310,14 +310,21 @@ public class PrinterService {
                 baos.write(LINE_SPACE_68);
                 line = line.replace("{H3}", "");
                 charsOnLine = charsOnLine / 2;
-            }
+            } else {
+								baos.write(DEFAULT_LINE_SPACE);
+								baos.write(TXT_NORMAL_NEW);
+						}
+
             if (lsm) {
                 baos.write(LINE_SPACE_24);
                 line = line.replace("{LS:M}", "");
             } else if (lsl) {
                 baos.write(LINE_SPACE_30);
                 line = line.replace("{LS:L}", "");
-            }
+						} else {
+                baos.write(LINE_SPACE_30);
+     				}
+						
             if (ct) {
                 baos.write(TXT_ALIGN_CT);
                 line = line.replace("{C}", "");
@@ -353,8 +360,8 @@ public class PrinterService {
                 baos.write(TXT_UNDERL_OFF);
             }
             if (h1 || h2 || h3) {
-                baos.write(DEFAULT_LINE_SPACE);
                 baos.write(TXT_NORMAL_NEW);
+                baos.write(DEFAULT_LINE_SPACE);
             }
             if (lsm || lsl) {
                 baos.write(LINE_SPACE_24);
